@@ -2,13 +2,13 @@
   "name": "leetcode-profile-server",
   "version": "1.0.0",
   "description": "This is a heroku server which will act as a backend service to get leetcode profile data",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "engines": {
     "node": "15.3.0"
   },
   "scripts": {
     "start": "node index.js",
-    "postinstall": "npm install @types/node-fetch --save-dev && tsc",
+    "postinstall": "tsc",
     "watch-node": "nodemon index.js",
     "watch-ts": "tsc -w"
   },
