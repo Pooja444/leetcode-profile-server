@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 
-import { getLeetUserProfile, getLeetQuestionsCount } from 'leet-profile-lib/index'
+import { getLeetUserProfile, getLeetQuestionsCount } from 'leet-profile-lib'
 
 const app = express()
 
