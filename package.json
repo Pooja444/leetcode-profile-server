@@ -1,0 +1,29 @@
+{
+  "name": "leetcode-profile-server",
+  "version": "1.0.0",
+  "description": "This is a heroku server which will act as a backend service to get leetcode profile data",
+  "main": "index.ts",
+  "engines": {
+    "node": "15.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pooja444/leetcode-profile-server.git"
+  },
+  "author": "Pooja Kulkarni",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Pooja444/leetcode-profile-server/issues"
+  },
+  "homepage": "https://github.com/Pooja444/leetcode-profile-server#readme",
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "express": "^4.17.1",
+    "ts-node": "^9.1.1",
+    "leet-profile-lib": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
