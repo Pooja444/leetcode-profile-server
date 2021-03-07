@@ -7,7 +7,10 @@
     "node": "15.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "postinstall": "npm install @types/node-fetch --save-dev && tsc",
+    "watch-node": "nodemon index.js",
+    "watch-ts": "tsc -w"
   },
   "repository": {
     "type": "git",
