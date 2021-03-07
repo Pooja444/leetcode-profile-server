@@ -10,7 +10,7 @@ app.use(cors())
 app.get('/profile/:user', getLeetUserProfile)
 app.get('/questions', getLeetQuestionsCount)
 
-const port = process.env.PORT || 1100
+const port = process.env.PORT || 1200
 
 app.listen(port, () => {
     console.log('Server listening on server https://leetcode-profile-lib.herokuapp.com/')
