@@ -1,12 +1,18 @@
 import express from 'express'
 import cors from 'cors'
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
+
+const swaggerDocument = YAML.load('./node_modules/leet-profile-lib/swagger.yaml');
 
 import { getLeetQuestionsCount, getUserBadges, getUserCalendarWithoutYear, getUserCalendarWithYear, getUserCommunityStats, getUserContestRanking, getUserContestRankingHistory, getUserDiscussions, getUserLanguages, getUserProblemsSolvedBeatsStats, getUserProfile, getUserRecentSubmissions, getUserSkills, getUserSocial, getUserSolutions, getUserSubmitStats } from 'leet-profile-lib'
 
 const app = express()
 
 app.use(cors())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// User end-points
 app.get('/user/:username/badges', getUserBadges)
 app.get('/user/:username/calendar', getUserCalendarWithoutYear)
 app.get('/user/:username/calendar/:year', getUserCalendarWithYear)
