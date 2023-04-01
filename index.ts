@@ -11,7 +11,7 @@ import user from './routes/user'
 
 const app = express()
 
-const swaggerFilePath = `${__dirname}/node_modules/leet-profile-lib`
+const swaggerFilePath = `${__dirname}/../node_modules/leet-profile-lib`
 const swaggerDocument = getSwaggerYaml(swaggerFilePath)
 
 app.use(cors())

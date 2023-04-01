@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { User } from 'leet-profile-lib/requests/user'
+import { User } from 'leet-profile-lib'
 
 const router = express.Router()
 
