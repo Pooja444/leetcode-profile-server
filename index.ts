@@ -1,33 +1,22 @@
 import express from 'express'
 import cors from 'cors'
 import swaggerUi from 'swagger-ui-express';
-import YAML from 'yamljs';
 
-const swaggerDocument = YAML.load('./node_modules/leet-profile-lib/swagger.yaml');
+import {
+    getLeetQuestionsCount,
+    getSwaggerYaml
+} from 'leet-profile-lib'
 
-import { getLeetQuestionsCount, getUserBadges, getUserCalendarWithoutYear, getUserCalendarWithYear, getUserCommunityStats, getUserContestRanking, getUserContestRankingHistory, getUserDiscussions, getUserLanguages, getUserProblemsSolvedBeatsStats, getUserProfile, getUserRecentSubmissions, getUserSkills, getUserSocial, getUserSolutions, getUserSubmitStats } from 'leet-profile-lib'
+import user from './routes/user'
 
 const app = express()
 
+const swaggerFilePath = `${__dirname}/node_modules/leet-profile-lib`
+const swaggerDocument = getSwaggerYaml(swaggerFilePath)
+
 app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-// User end-points
-app.get('/user/:username/badges', getUserBadges)
-app.get('/user/:username/calendar', getUserCalendarWithoutYear)
-app.get('/user/:username/calendar/:year', getUserCalendarWithYear)
-app.get('/user/:username/community-stats', getUserCommunityStats)
-app.get('/user/:username/contest-ranking-history', getUserContestRankingHistory)
-app.get('/user/:username/contest-ranking', getUserContestRanking)
-app.get('/user/:username/discussions', getUserDiscussions)
-app.get('/user/:username/languages', getUserLanguages)
-app.get('/user/:username/problems-solved-beats-stats', getUserProblemsSolvedBeatsStats)
-app.get('/user/:username/profile', getUserProfile)
-app.get('/user/:username/recent-submissions', getUserRecentSubmissions)
-app.get('/user/:username/skills', getUserSkills)
-app.get('/user/:username/social', getUserSocial)
-app.get('/user/:username/solutions', getUserSolutions)
-app.get('/user/:username/submit-stats', getUserSubmitStats)
+app.use('/user', user)
 
 app.get('/questions', getLeetQuestionsCount)
 
